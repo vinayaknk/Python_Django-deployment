@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class=" container jumbotron">
+
+        <h1> List of unpublished Blogs</h1><hr><hr>
+
+        {% for post in post_list %}
+        <div class="">
+            <h3><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.blog_title}}</a></h3>
+            <h6>Created on : {{post.created_date}} </h6>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

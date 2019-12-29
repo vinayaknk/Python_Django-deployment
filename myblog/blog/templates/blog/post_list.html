@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class=" container jumbotron">
+        <h1> List of Published Blogs</h1><hr><hr>
+
+        {% for post in post_list %}
+        <div class="posts">
+            <h3><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.blog_title}}</a></h3>
+            {% if post.published_date %}
+                <h6>Published On : {{post.published_date}}</h6>
+            {% else %}
+                <h6>Not yet published</h6>
+            {% endif %}
+
+            <h5> Comments : {{post.approved_comments.count}}</h5>
+
+        </div>
+        <hr>
+        {% empty %}
+            <h1>Posts not yet created </h1>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

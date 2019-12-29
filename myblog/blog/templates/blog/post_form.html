@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+    <div class="container jumbotron" style="background-color: #e3f2fd;">
+            <h1>Enter Post Details</h1><br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Save Post">
+        </form>
+
+    </div>
+
+
+{% endblock %}
